@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f4f9f4;
+      color: #333;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 40px;
+      display: inline-block;
+    }
+    h1 {
+      color: green;
+    }
+    button {
+      background-color: #004d00;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #006600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>✅ Payment Successful!</h1>
+    <p>Thank you for purchasing fuel from <b>Greenway Fuel Station</b>.</p>
+    <p>Your transaction has been securely processed.</p>
+    <button onclick="goHome()">Back to Home</button>
+  </div>
+
+  <script>
+  function goHome() {
+      window.location.href = "font.html"; // Link back to your home page
+  }
+  </script>
+</body>
+</html>

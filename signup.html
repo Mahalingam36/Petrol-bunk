@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="petrol.css">
+  <title></title>
+</head>
+<body>
+<div class="login-container">
+    <h2>Petrol Pump Sign up</h2>
+    <form onsubmit="return handleLogin(event)">
+      <label for="username">First Name</label>
+      <input type="text" id="username" placeholder="Enter First Name" required />
+      <label for="username">Last Name</label>
+      <input type="text" id="username" placeholder="Enter Last Name" required />
+<label for="username">User name</label>
+      <input type="text" id="username" placeholder="Enter User Name" required />
+      
+        <label for="username">Email</label>
+      <input type="email" id="username" placeholder="Enter Your Email" required />
+      <label for="username">Date of birth</label>
+      <input type="date" id="username" placeholder="DOB" required />
+      <label for="password">Mobile Number</label>
+      <input type="number" id="password" placeholder="Enter Number" required />
+  <label for="password">Password</label>
+        
+      <input type="password" id="password" placeholder="Enter password" required />
+        <label for="password">Confirm the Password</label>
+        
+      <input type="password" id="password" placeholder="Re Enter the password" required />
+          
+           <input type="checkbox" id="password"  required >  I agree the terms and conditions</input> 
+        
+      <button type="submit">Login</button>
+    </form>
+  
+</body>
+<script>
+function registerUser() {
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+    let terms = document.getElementById("terms").checked;
+
+    if (!terms) {
+        alert("You must agree to the terms and conditions.");
+        return;
+    }
+
+    if (password !== confirm) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    if (username && password) {
+        let user = { firstName, lastName, email, mobile, password };
+        localStorage.setItem(username, JSON.stringify(user));
+        alert("Signup successful! You can now log in.");
+        window.location.href = "quj.html"; // link to your login page
+    } else {
+        alert("Please fill all required fields!");
+    }
+}
+</script>
+</html>

@@ -1,0 +1,45 @@
+   <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="petrol.css">
+  <title></title>
+</head>
+    <div class="login-container">
+    <h2>Petrol Pump Login</h2>
+    <form onsubmit="return handleLogin(event)">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" required />
+
+      <button type="submit" >Login</button>
+    </form>
+    <div class="links">
+      <p><a href="forget.html">Forgot password?</a></p>
+      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+<body>
+  
+</body>
+<script>
+function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if (user === 'hi' && pass === '122') {
+        alert('Login successful! Redirecting...');
+        window.location.href = 'font.html'; // Link to main petrol pump page
+      } else {
+        alert('Invalid username or password.');
+      }
+    }
+    
+
+</script>
+</html>
