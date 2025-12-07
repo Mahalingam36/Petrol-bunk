@@ -1,2 +1,92 @@
-# Petrol-bunk
-It's an a website about the petrol pump in different locations 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <<link rel="stylesheet" href="gross.css">>
+  <title></title>
+</head>
+
+<body>
+    <header>
+    <h1>Greenway Fuel Station</h1>
+    <span id="user">Welcome, Admin</span>
+  </header>  <main class="container">
+    <h2>Fuel Purchase</h2><label for="fuelType">Select Fuel Type:</label>
+<select id="fuelType">
+  <option value="petrol">Petrol - ₹110/L</option>
+  <option value="diesel">Diesel - ₹95/L</option>
+  <option value="cng">CNG - ₹80/L</option>
+</select>
+
+<label for="location">Select Location:</label>
+<select id="location">
+  <option value="trivandrum">Trivandrum</option>
+  <option value="chennai">Chennai</option>
+  <option value="bangalore">Bangalore</option>
+  <option value="mumbai">Mumbai</option>
+</select>
+
+<label for="quantity">Enter Quantity (in Litres):</label>
+<input type="number" id="quantity" min="1" placeholder="e.g. 10" />
+
+<div class="price-box" id="priceBox">
+  <p>Total Price: <strong>₹0</strong></p>
+  <p>Location Rate Adjusted</p>
+</div>
+
+<button onclick="calculatePrice()">Calculate Price</button>
+<button onclick="makePayment()">Proceed to Payment</button>
+<button onclick="logout()" style="
+    background-color: #b22222;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;">
+    Logout
+</button>
+
+  </main>  <footer>
+    © <span id="year"></span> Greenway Fuel Station | Secure Payment Gateway
+  </footer>  
+</body>
+<script>
+    const baseRates = {
+      petrol: 110,
+      diesel: 95,
+      cng: 80
+    };
+  const locationAdjust = {
+      trivandrum: 1.0,
+      chennai: 1.05,
+      bangalore: 1.07,
+      mumbai: 1.1
+    };
+  function calculatePrice() {
+      const type = document.getElementById('fuelType').value;
+      const qty = parseFloat(document.getElementById('quantity').value);
+      const loc = document.getElementById('location').value;
+      if (!qty || qty <= 0) {
+        alert('Please enter a valid quantity');
+        return;
+      }
+const price = baseRates[type] * qty * locationAdjust[loc];
+      document.getElementById('priceBox').innerHTML = `<p>Total Price: <strong>₹${price.toFixed(2)}</strong></p><p>Fuel Type: ${type.toUpperCase()} | Location: ${loc.charAt(0).toUpperCase() + loc.slice(1)}</p>`;
+    }
+   function makePayment() {
+      alert('Redirecting to secure payment gateway...');
+      window.location.href = 'payment.html';
+    }
+document.getElementById('year').textContent = new Date().getFullYear();
+    
+function logout() {
+    alert("You have been logged out!");
+    window.location.href = "quj.html"; // Change to your login page filename
+}
+
+  </script>
+
+</html>
